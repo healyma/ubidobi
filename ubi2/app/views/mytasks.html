@@ -1,0 +1,33 @@
+<pre>
+current and upcoming tasks
+blockers/predecessors etc
+
+</pre>
+
+<div ng-controller="MytasksCtrl">
+    <project-drop-down project="selectedProject"></project-drop-down>
+    <list-drop-down project="selectedProject" listdetails="listDetails"></list-drop-down>
+    
+    <task-list data="listDetails.data" title="listDetails.list.title" ng-if="listDetails.data"></task-list>
+    
+        <script type="text/ng-template" id="confirmDeleteDialog.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Are you sure you want to delete this?</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <ul>
+                <li ng-repeat="item in $ctrl.items">
+                    <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ $ctrl.selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="delete()">Yes</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">No, don't delete it</button>
+        </div>
+    </script>
+
+<button ng-click="createAlert()">test Alerts</button>
+<button ng-click="clickTest()">Click</button>
+</div>

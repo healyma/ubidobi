@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">What would you like to do here?
+    </h3>
+</div>
+        <div class="modal-body" id="modal-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="btn" style="width:100%" ng-click="newTask()">
+                        Add a task
+                    </button>
+                    <button class="btn" style="width:100%">
+                        Add a row
+                    </button>
+                    <button class="btn" style="width:100%">
+                        Add a child row
+                    </button>
+                    <button class="btn" style="width:100%">
+                        Move this row
+                    </button>
+                </div>
+                <div class="col-sm-8">
+                    for a new task, we need to create a task, to-do list for top level tasks or 
+                    add to existing to-do for lower level tasks and add to a kanban board/epic
+                    <pre>
+                        {{selected.row}}
+                    </pre>
+                    <pre>
+                        {{selected.task}}
+                    </pre>
+                </div>
+            </div>
+  
+           
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="delete()" >Create it!</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>

@@ -1,0 +1,6 @@
+<select ng-model="selectedProject">
+    <option value='' selected>Filter by Project</option>
+    <option ng-repeat="proj in projects" value="proj.$id" ng-init="p=projectDetails(proj.$id)" ng-value="proj.$id">{{p.title}}</option>
+    <option value='new'>&lt;&lt; add a new project &gt;&gt;</option>
+</select>
+

@@ -1,0 +1,21 @@
+
+
+<span ng-if="avatar">
+    <button ng-if="!contact.image" class="btn footer-buttons" ng-click="selectContact()" ng-click="selectContact()"  data-toggle="tooltip" title="{{contact.firstName}} {{contact.lastName}}">{{contact.initials}}</button>
+    <img ng-if="contact.image" class="ubi-profile-pic_header" ng-src="{{contact.image.b64}}" ng-click="selectContact()"  data-toggle="tooltip" title="{{contact.firstName}} {{contact.lastName}}">
+</span>
+
+
+<span ng-if="!avatar">
+    
+    <button class="btn" 
+            ng-click="selectContact()" 
+            selected="iJC2mQvYMVZuqpH3dKaPESIjPD12">{{contact.firstName}} {{contact.lastName}}</button>
+</span>
+<!--
+   we need to show compact data for the selected contact(s)
+and have the option to select a different contact
+
+options are whether control is read only, minimum number of contacts to be selected (default 1), maximum number (default 1), 
+and whether or not the user can search outside their own contacts (search users) 
+-->

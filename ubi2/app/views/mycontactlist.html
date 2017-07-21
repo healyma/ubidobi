@@ -1,0 +1,7 @@
+<div>
+  contact list
+  <ul>
+    <li ng-repeat="contact in contacts">
+    <ng-avatar ng-if="!contact.image" round-shape="true" initials="{{contact.firstname.charAt(0)}}{{contact.lastname.charAt(0)}}"></ng-avatar> {{contact.firstname}} {{contact.lastname}}</li>
+  </ul>
+</div>

@@ -1,0 +1,34 @@
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name ubiApp.controller:NotepadCtrl
+ * @description
+ * # NotepadCtrl
+ * Controller of the ubiApp
+ */
+angular.module('ubiApp')
+  .controller('NotepadCtrl', function ($scope,Scratchpad,UserNotes) {
+  	$scope.myPads=UserNotes.myNotes();
+	$scope.thisPad= Scratchpad;
+	$scope.thisPad.text=$scope.thisPad.$value;
+	$scope.savePad=function(){
+		$scope.thisPad.$save();
+	}
+	$scope.openPad=function(noteId){
+		if(noteId){		
+			var pad=$scope.noteDetails(noteId);
+			console.log(pad);
+			pad.$value=pad.text;
+			$scope.thisPad=pad;
+		}else {
+			//default - open scratchpad if no id supplied
+			$scope.thisPad= Scratchpad;
+		}
+
+	}
+
+	$scope.noteDetails=function(noteId){
+		return UserNotes.noteDetails(noteId);
+	}
+  });

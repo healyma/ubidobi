@@ -1,0 +1,274 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>UbiDoBi - Work, better!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-color-picker/dist/angularjs-color-picker.css" />
+    <link rel="stylesheet" href="bower_components/angular-gantt/assets/angular-gantt.css" />
+    <link rel="stylesheet" href="bower_components/angular-gantt/assets/angular-gantt-plugins.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.css" />
+    <link rel="stylesheet" href="bower_components/angular-notify/dist/angular-notify.css" />
+    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-notification/dist/angular-ui-notification.css" />
+    <link rel="stylesheet" href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css" />
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    
+<!-- have to pull these down here as bower keeps removing them
+-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />    
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/material-design-icons/iconfont/material-icons.css" />
+    <link rel="stylesheet" href="bower_components/textAngular/dist/textAngular.css" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+     
+    
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="ubiApp" ng-controller="UbitopCtrl">
+      <div id="wrap">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="header" ng-cloak="">
+<main-menu>
+</main-menu>
+        
+        
+    </div>
+
+    <div class="container" style='padding-bottom:40px'>
+    <div ng-view=""></div>
+    </div>
+ </div>
+  <ubi-footer></ubi-footer>
+
+
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">{{dialogTitle}}Title in here</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <ul>
+                <li ng-repeat="item in $ctrl.items">
+                    <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ $ctrl.selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="stackedModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
+        </div>
+        <div class="modal-body" id="modal-body-{{name}}">
+            Having multiple modals open at once is probably bad UX but it's technically possible.
+        </div>
+    </script>
+
+     
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+ <!--   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script> -->
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/tinycolor/tinycolor.js"></script>
+    <script src="bower_components/angular-color-picker/dist/angularjs-color-picker.js"></script>
+ <!--   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/angular-gantt/assets/angular-gantt.js"></script>
+    <script src="bower_components/angular-gantt/assets/angular-gantt-plugins.js"></script>
+    <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+    <script src="bower_components/rangy/rangy-core.js"></script>
+    <script src="bower_components/rangy/rangy-classapplier.js"></script>
+    <script src="bower_components/rangy/rangy-highlighter.js"></script>
+    <script src="bower_components/rangy/rangy-selectionsaverestore.js"></script>
+    <script src="bower_components/rangy/rangy-serializer.js"></script>
+    <script src="bower_components/rangy/rangy-textrange.js"></script>
+    <script src="bower_components/textAngular/dist/textAngular.js"></script>
+    <script src="bower_components/textAngular/dist/textAngular-sanitize.js"></script>
+    <script src="bower_components/textAngular/dist/textAngularSetup.js"></script>
+    <script src="bower_components/angular-notify/dist/angular-notify.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="bower_components/angular-native-dragdrop/draganddrop.js"></script>
+    <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>
+    <script src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script src="bower_components/get-size/get-size.js"></script>
+    <script src="bower_components/ev-emitter/ev-emitter.js"></script>
+    <script src="bower_components/desandro-matches-selector/matches-selector.js"></script>
+    <script src="bower_components/fizzy-ui-utils/utils.js"></script>
+    <script src="bower_components/outlayer/outlayer.js"></script>
+    <script src="bower_components/angular-avatar/dist/angular-avatar.js"></script>
+    <script src="bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
+    <script src="bower_components/jsPlumb/dist/js/jsplumb.js"></script>
+    <script src="bower_components/angular-socket-io/socket.min.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <!-- endbuild -->
+
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        
+    <script src="scripts/masonry.pkgd.js"></script>
+    <script src="scripts/imagesloaded.pkgd.js"></script>
+    <script src="scripts/jquery-bridget.js"></script>
+        <script src="updated_bower/ng-alerts/ng-alerts.js"></script>
+    <script src="scripts/angular-masonry.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/angularfire/auth.js"></script>
+        <script src="scripts/angularfire/config.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/chat.js"></script>
+        <script src="scripts/filters/reverse.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/account.js"></script>
+        <script src="scripts/directives/ngShowAuth.js"></script>
+        <script src="scripts/directives/ngHideAuth.js"></script>
+        <script src="scripts/routes.js"></script>
+        <script src="scripts/directives/ubinotepad.js"></script>
+        <script src="scripts/directives/ubitasklist.js"></script>
+        <script src="scripts/directives/ubimycontacts.js"></script>
+        <script src="scripts/directives/ubicanvas.js"></script>
+        <script src="scripts/directives/ubiprojectlist.js"></script>
+        <script src="scripts/directives/ubiprojectdetails.js"></script>
+        <script src="scripts/directives/ubitaskdetails.js"></script>
+        <script src="scripts/directives/ubipostits.js"></script>
+        <script src="scripts/directives/ubimessagelist.js"></script>
+        <script src="scripts/directives/ubinewmessage.js"></script>
+        <script src="scripts/directives/ubisearchusers.js"></script>
+        <script src="scripts/directives/ubiuserprofile.js"></script>
+        <script src="scripts/controllers/dashboard.js"></script>
+        <script src="scripts/controllers/projects.js"></script>
+        <script src="scripts/controllers/contacts.js"></script>
+        <script src="scripts/controllers/teamscape.js"></script>
+        <script src="scripts/controllers/menu.js"></script>
+        <script src="scripts/controllers/calendar.js"></script>
+        <script src="scripts/controllers/messages.js"></script>
+        <script src="scripts/controllers/mytasks.js"></script>
+        <script src="scripts/controllers/profile.js"></script>
+        <script src="scripts/directives/mainmenu.js"></script>
+        <script src="scripts/directives/maincarousel.js"></script>
+        <script src="scripts/controllers/maincarousel.js"></script>
+        <script src="scripts/services/usercanvases.js"></script>
+        <script src="scripts/services/canvascontent.js"></script>
+        <script src="scripts/controllers/ubicanvas.js"></script>
+        <script src="scripts/services/calendar.js"></script>
+        <script src="scripts/services/auth.js"></script>
+        <script src="scripts/services/menu.js"></script>
+        <script src="scripts/services/contact.js"></script>
+        <script src="scripts/directives/budgetwidget.js"></script>
+        <script src="scripts/directives/milestonewidget.js"></script>
+        <script src="scripts/directives/mycontactlist.js"></script>
+        <script src="scripts/directives/userdetails.js"></script>
+        <script src="scripts/directives/usersearch.js"></script>
+        <script src="scripts/directives/userinvite.js"></script>
+        <script src="scripts/controllers/ubinewmessage.js"></script>
+        <script src="scripts/controllers/ubinotepad.js"></script>
+        <script src="scripts/controllers/ubitaskdetails.js"></script>
+        <script src="scripts/controllers/ubitasklist.js"></script>
+        <script src="scripts/controllers/ubiuserdetails.js"></script>
+        <script src="scripts/services/projects.js"></script>
+        <script src="scripts/controllers/ubifooter.js"></script>
+        <script src="scripts/services/user.js"></script>
+        <script src="scripts/directives/displaydatetime.js"></script>
+        <script src="scripts/directives/userblock.js"></script>
+        <script src="scripts/controllers/displaydatetime.js"></script>
+        <script src="scripts/controllers/userblock.js"></script>
+        <script src="scripts/controllers/logout.js"></script>
+        <script src="scripts/directives/ubiforum.js"></script>
+        <script src="scripts/directives/ubimessages.js"></script>
+        <script src="scripts/directives/ubitasks.js"></script>
+        <script src="scripts/directives/ubiteam.js"></script>
+        <script src="scripts/directives/ubigantt.js"></script>
+        <script src="scripts/services/scratchpad.js"></script>
+        <script src="scripts/controllers/notepad.js"></script>
+        <script src="scripts/services/usernotes.js"></script>
+        <script src="scripts/services/ubiplumb.js"></script>
+        <script src="scripts/services/footer.js"></script>
+        <script src="scripts/controllers/ubigantt.js"></script>
+        <script src="scripts/controllers/alerts.js"></script>
+        <script src="scripts/controllers/dialog1.js"></script>
+        <script src="scripts/controllers/deletetask.js"></script>
+        <script src="scripts/controllers/newevent.js"></script>
+        <script src="scripts/directives/contactus.js"></script>
+        <script src="scripts/controllers/contactus.js"></script>
+        <script src="scripts/directives/contactus_launch.js"></script>
+        <script src="scripts/controllers/contactus_launch.js"></script>
+        <script src="scripts/services/notification.js"></script>
+        <script src="scripts/directives/myprojects.js"></script>
+        <script src="scripts/controllers/myprojects.js"></script>
+        <script src="scripts/directives/selectproject.js"></script>
+        <script src="scripts/controllers/selectproject.js"></script>
+        <script src="scripts/services/task.js"></script>
+        <script src="scripts/filters/notdeleted.js"></script>
+        <script src="scripts/directives/footer.js"></script>
+        <script src="scripts/directives/listdropdown.js"></script>
+        <script src="scripts/controllers/listdropdown.js"></script>
+        <script src="scripts/directives/projectdropdown.js"></script>
+        <script src="scripts/controllers/projectdropdown.js"></script>
+        <script src="scripts/directives/tasklist.js"></script>
+        <script src="scripts/controllers/tasklist.js"></script>
+        <script src="scripts/directives/selectcontact.js"></script>
+        <script src="scripts/controllers/c_selectcontact.js"></script>
+        <script src="scripts/directives/agileboard.js"></script>
+        <script src="scripts/controllers/c_agileboard.js"></script>
+        <script src="scripts/controllers/agileboard.js"></script>
+        <script src="scripts/controllers/managegantt.js"></script>
+        <script src="scripts/services/projectgantt.js"></script>
+        <script src="scripts/directives/stickynote.js"></script>
+        <script src="scripts/controllers/stickynote.js"></script>
+        <script src="scripts/directives/stickylist.js"></script>
+        <script src="scripts/controllers/stickylist.js"></script>
+        <script src="scripts/filters/hidecompleted.js"></script>
+        <script src="scripts/controllers/contactlist.js"></script>
+        <script src="scripts/controllers/ubitop.js"></script>
+        <script src="scripts/services/account.js"></script>
+        <script src="scripts/directives/projectdetails.js"></script>
+        <script src="scripts/controllers/projectdetails.js"></script>
+        <script src="scripts/directives/register.js"></script>
+        <script src="scripts/controllers/register.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "ubiServer",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "mark",
+  "contributors": [],
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "express": "^4.14.1",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.17.1",
+    "mongoose": "^4.8.2",
+    "redis": "^2.6.5"
+  }
+}

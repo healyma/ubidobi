@@ -1,0 +1,31 @@
+<div ng-show="!register">
+    <button class="btn dtn-default" ng-click="clkRegister()">Click here to register</button>
+</div>
+<div ng-show="register">
+  <div class="form-group">
+    <label for="newUserEmail">Email address</label>
+    <input type="email" class="form-control" id="newUserEmail" ng-model="newUser.email"placeholder="Email address">
+  </div>
+  <div class="form-group">
+    <label for="newUserPassword">Password</label>
+    <input type="password" class="form-control" id="newUserPassword" ng-model="newUser.password"placeholder="password">
+  </div>
+  <div class="form-group">
+    <label for="newUserConfirmPW">Confirm Password</label>
+    <input type="password" class="form-control" id="newUserConfirmPW" ng-model="newUser.confirmPW"placeholder="confirm password">
+  </div>
+  <div class="form-group">
+    <label for="newUserFirstName">First Name</label>
+    <input type="text" class="form-control" id="newUserFirstName" ng-model="newUser.firstName"placeholder="First Name">
+  </div>
+  <div class="form-group">
+    <label for="newUserLastName">Last Name</label>
+    <input type="text" class="form-control" id="newUserLastName" ng-model="newUser.lastName"placeholder="Last Name">
+  </div>
+    <button ng-click="registerUser()">Register
+                </button>
+    <pre>
+        need to add in details such as organisation etc.
+        should document what a complete profile looks like, but what we have above will do for now!
+    </pre>
+</div>

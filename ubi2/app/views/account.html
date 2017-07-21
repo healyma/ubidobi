@@ -1,0 +1,101 @@
+
+<div class="row-fluid">
+<div class="{{user.provider === 'password'? 'col-md-4' : 'col-md-12'}}">
+  <h3>My Profile</h3>
+  <div class="panel">
+      <div class="col-sm-12 col-md-8 col-lg-6 panel">
+        <div class="col-xs-8 col-sm-6 col-md-3">
+            <img md-menu-align-target class="ubi-profile-pic"
+                  ng-src="data:image/jpeg;base64,{{profile.image.b64}}"/>
+        </div>
+        <div class="col-xs-4 col-sm-6 col-md-9">
+            <div class="col-xs-12 col-sm-4">first name:</div>
+            <div class="col-xs-12 col-sm-8">
+            
+    <a href="#" editable-text="profile.firstName" onbeforesave="updateProfile(profile)" buttons="no">{{ profile.firstName|| "Enter your first name" }}</a>
+            </div>
+            <div class="col-xs-12 col-sm-4">last name:</div>
+            <div class="col-xs-12 col-sm-8"><a href="#" editable-text="profile.lastName" onbeforesave="updateProfile(profile)" buttons="no">{{ profile.lastName|| "Enter your last name" }}</a></div>
+            <div class="col-xs-12 col-sm-4">organisation:</div>
+            <div class="col-xs-12 col-sm-8">{{profile.organisationName}}</div>
+            <div class="col-xs-12 col-sm-4">display name:</div>
+            <div class="col-xs-12 col-sm-8">{{profile.displayName}}</div>
+            <div class="col-xs-12 col-sm-4">email:</div>
+            <div class="col-xs-12 col-sm-8">{{profile.email}}</div>
+        </div>
+      </div>
+      <div>
+          <div ng-repeat="provider in user.providerData">
+              <pre>{{provider}}</pre>
+          </div>
+      </div>
+      
+      <div class="panel col-md-4 col-lg-6">
+      <div>
+          stick in contact details
+      </div>
+      <div>
+          and other stuff in here
+      </div>
+      <div>
+          eventually, there should be activity, gamification etc. stuff
+      </div>
+  </div>
+    <p>
+    <a  class="btn btn-warning" ng-href="/#!/logout" class="btn btn-danger">Log Out</a>
+  </p>
+  
+  </div>
+</div></div>
+  
+
+
+
+
+<div class="col-md-4" ng-show="{{user.provider === 'password'}}">
+<form role="form">
+  <h3>Change Password</h3>
+
+  <p class="form-group">
+    <label>Old Password:</label>
+    <input type="password" ng-keypress="clear()" ng-model="oldpass" class="form-control" />
+  </p>
+
+  <p class="form-group">
+    <label>New Password:</label>
+    <input type="password" ng-keypress="clear()" ng-model="newpass" class="form-control" />
+  </p>
+
+  <p class="form-group">
+    <label>Confirm New Password:</label>
+    <input type="password" ng-keypress="clear()" ng-model="confirm" class="form-control" />
+  </p>
+
+  <button class="btn btn-primary" ng-click="changePassword(oldpass, newpass, confirm)">change password</button>
+
+  <p class="error" ng-show="err">{{err}}</p>
+  <p class="good" ng-show="msg">{{msg}}</p>
+</form>
+</div>
+
+<div class="col-md-4" ng-show="{{user.provider === 'password'}}">
+<form>
+  <h3>Change Email</h3>
+
+  <p class="form-group">
+    <label>New Email:</label>
+    <input type="text" ng-keypress="clear()" ng-model="newEmail" class="form-control" />
+  </p>
+
+  <p class="form-group">
+    <label>Password:</label>
+    <input type="password" ng-keypress="clear()" ng-model="pass" class="form-control" />
+  </p>
+
+  <button class="btn btn-primary" ng-click="changeEmail(pass, newEmail)">update email</button>
+</form>
+</div>
+
+</div>
+<p class="clearfix"></p>
+<div ng-repeat="message in messages" class="alert alert-{{message.type}}">{{message.text}}</div>

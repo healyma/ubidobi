@@ -1,0 +1,27 @@
+<div ui-tree id="tree1-root">
+      <ol ui-tree-nodes="" ng-model="tree1">
+        <li ng-repeat="node in tree1" ui-tree-node ng-include="'nodes_renderer1.html'"></li>
+      </ol>
+
+
+<div class="row">
+  <div class="col-sm-2" ng-repeat="lane in lanes">
+    <h3>{{lane.title}}</h3>
+    <div ui-tree id="tree1-root">
+      <ol ui-tree-nodes="" ng-model="tasks[lane.order]" >
+          <li> new item in here</li>
+        <li ng-repeat="task in tasks[lane.order]" ui-tree-node ng-include="'taskCard.html'"></li>
+      </ol>
+    </div>
+  </div>
+
+
+
+<script ui-tree="treeOptions" callbacks="treeOptions" type="text/ng-template" id="taskCard.html">
+  <div ui-tree-handle class="taskCard">
+  <div class="taskHeader"><span class="glyphicon glyphicon-move"></span>
+    {{task.name}}
+        </div>
+  </div>
+
+</script>

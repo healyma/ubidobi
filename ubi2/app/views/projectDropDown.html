@@ -1,0 +1,8 @@
+<button type="button" class="btn btn-default" ng-click="projectCollapsed = !projectCollapsed">Project: {{project.title}}</button>
+	<div uib-collapse="projectCollapsed">
+		<div ng-repeat="project in myProjects">
+                    <div >   
+                        <button class="btn"ng-click="selectProject(project)" >{{project.title}}</button>
+                    </div>
+    </div>
+	</div>

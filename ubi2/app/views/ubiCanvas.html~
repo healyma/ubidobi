@@ -1,0 +1,58 @@
+
+<pre>
+  need to fix aspect ratio for canvas and apply a multiplier to allow a consistent image
+across different resolutions. This will also help when we add images/pdfs or docs to the
+canvas for editing
+
+Need to look at adding shapes and highlighting to the canvas as well
+
+identify full suite of buttons/controls for the canvas
+</pre>
+
+<div class="column">
+  <div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" ng-hide="newForm" class="btn btn-default navbar-btn" ng-click="showNew()">New</button>
+          <div class="form-group" ng-if="newForm">
+            <input type="text" ng-model="newcanvas.name" class="form-control" placeholder="New Canvas Name">
+            <button type="button" class="btn btn-default navbar-btn" ng-click="addCanvas()">OK</button>
+          </div>
+          <div class="dropdown">
+              <button  class="btn btn-default navbar-btn" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Open Canvas
+                  <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li ng-repeat="canvas in userCanvases" ng-click="loadCanvas(canvas.$id);" ng-init="thisCanvas=canvasDetails(canvas.$id)">{{thisCanvas.name}}</li>
+                  <li>some random canvas</li>
+                  <li>and anther one</li>
+              </ul>
+          </div>
+          <button type="button" class="btn btn-default navbar-btn">Invite</button>
+          <button type="button" class="btn btn-default navbar-btn">Save</button>
+          <ul class="nav navbar-nav navbar-right">
+              <li>Canvas Name: {{thisCanvas.name}}
+              <li>Users: 0
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="row">
+      <div class="col-md-2 col-lg-1">
+          <div class="btn-group-vertical" role="group" aria-label="Users">
+              <button type="button" class="btn btn-default">me</button>
+              <button type="button" class="btn btn-default">him</button>
+              <button type="button" class="btn btn-default">her</button>
+              <color-picker ng-model="activeColour" options="colourPickerOptions"></color-picker>
+          </div>
+      </div>
+      <div class="col-md-10 col-lg-11">
+          <canvas id="teamCanvas" style="border:1px solid #00ff00;">
+          </canvas>
+      </div>
+  </div>
+</div>

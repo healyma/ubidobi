@@ -1,0 +1,43 @@
+<p>This is the projects view.</p>
+<pre>
+list projects belonging to contacts and ask to join
+accept/reject join requests from other users
+invite users to project (and Ubi)
+project cards
+export status to pdf
+embed/create docs (PID etc)
+
+</pre>
+<div class="row">
+	<div class="panel panel-default col-sm-6 col-md-4 col-lg3">
+	 <div class="panel-heading"><div class="form-group">
+    <label for="title">Add a new project</label>
+    <input type="text" class="form-control" id="title" placeholder="Project Title" ng-model="newProject.title">
+  </div></div>
+	  <div class="panel-body">
+                  Just add a project title for now and you can add team members and other important details later
+	  </div>
+	  <div class="panel-footer"><button type="button" class="btn btn-succes" ng-click="addProject()">Save</button>
+
+<!-- Indicates a successful or positive action -->
+<button type="button" class="btn btn-danger" ng-click="resetProjectForm()">Cancel</button></div>
+	</div>
+    	<div class="panel panel-default col-sm-6 col-md-4 col-lg3" ng-repeat="project in myProjects">
+	 <div class="panel-heading">{{project.title}}</div>
+	  <div class="panel-body">
+		{{project.Description}}
+                <br/>My role: {{proj.$value}}
+                <br/>Status: {{project.currentStatus}}
+                <br/>Created At: <display-date-time dt=project.createdAt editable="false"></display-date-time>
+                <br/>Created By:
+                <user-block user="{title:'Owner',maxCount:1,minCount:1,userId:project.createdBy}" editable="false"></user-block>
+                  
+	  </div>
+         <div class="panel-footer">{{project.currentStatus}}<a class="btn btn-default" ng-href="/#!/projectDetails/{{project._id}}">Details</a></div>
+	</div>
+	
+
+
+
+
+</div>

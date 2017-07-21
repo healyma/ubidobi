@@ -1,0 +1,62 @@
+What the mouse does:<div class="btn-group">
+        <label class="btn btn-success" ng-model="options.mouse" uib-btn-radio="'draw'" >New task</label>
+        <label class="btn btn-success" ng-model="options.mouse" uib-btn-radio="'depend'" >Dependencies</label>
+        <label class="btn btn-success" ng-model="options.mouse" uib-btn-radio="'move'" >Moves tasks</label>
+        <label class="btn btn-success" ng-model="options.mouse" uib-btn-radio="'scroll'" >Scrolls/Moves around</label>
+    </div>
+<div gantt data=data api='registerApi'>
+    <gantt-tree enabled="true" header-content="options.treeHeaderContent"
+                                                    keep-ancestor-on-filter-row="true">
+                                        </gantt-tree>
+     <gantt-table enabled="true"
+                                                     columns="options.sideMode === 'TreeTable' ? options.treeTableColumns : options.columns"
+                                                     headers="options.columnsHeaders"
+                                                     classes="options.columnsClasses"
+                                                     formatters="options.columnsFormatters"
+                                                     contents="options.columnsContents"
+                                                     header-contents="options.columnsHeaderContents">
+                                        </gantt-table>
+  <gantt-movable enabled="options.mouse=='move'"></gantt-movable>
+  <gantt-draw-task enabled="options.mouse=='draw'"
+                   task-factory="drawTaskFactory"></gantt-draw-task>
+      <gantt-dependencies enabled="options.mouse=='depend'"
+                          jsplumb-defaults="{
+Endpoint: ['Dot', {radius: 4}],
+EndpointStyle: {fillStyle:'#456', strokeStyle:'#456', lineWidth: 1},
+Connector: 'Flowchart',
+ConnectionOverlays: [['Arrow', { location:1, length:12, width:12}]]
+}">
+    </gantt-dependencies>
+                                        <gantt-groups enabled="true"></gantt-groups>
+                                        <gantt-tooltips></gantt-tooltips>
+                                        <gantt-bounds></gantt-bounds>
+                                        <gantt-progress></gantt-progress>
+                                        
+</div>
+
+                                        
+ <script type="text/ng-template" id="taskPopUp.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Task title in here</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+           <div class="row">
+            <div class="col-sm-9 col-md-10">Description</div>
+            <div class="col-sm-3 col-md-2">
+                <div ><span class="right">assigned:<select-contact avatar="true" min-contacts="1" max-contacts="999" read-only="true" selected="[]" search-users="false"></select-contact></span></div>
+                <div><span class="right"> owner:<select-contact avatar="true" min-contacts="1" max-contacts="999" read-only="true" selected="[]" search-users="false"></select-contact></span></div>
+                </div>
+           </div>
+           <div> Created At</div>
+           <div> start By</div>
+           <div> Due By</div>
+           <div> Status</div>
+           <div> menu/options</div>
+           
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="delete()" >Yes</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">No, don't delete it</button>
+        </div>
+    </script>
+    

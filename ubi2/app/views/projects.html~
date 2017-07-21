@@ -1,0 +1,36 @@
+<p>This is the projects view.</p>
+<pre>
+project cards
+export status to pdf
+embed/create docs (PID etc)
+</pre>
+
+<div class="row">
+
+<div class="panel panel-default col-sm-6 col-md-4 col-lg3">
+ <div class="panel-heading">P1</div>
+  <div class="panel-body">
+    Project details
+  </div>
+  <div class="panel-footer">Project summary</div>
+</div>
+	<div class="panel col-sm-6 col-md-4 col-lg3">
+		P1
+	</div>
+	<div class="panel col-sm-6 col-md-4 col-lg3">
+		P2
+	</div>
+	<div class="panel col-sm-6 col-md-4 col-lg3">
+		P3
+	</div>
+	<div class="panel col-sm-6 col-md-4 col-lg3">
+		P4
+	</div>	
+	<div class="panel col-sm-6 col-md-4 col-lg3">
+		P5
+	</div>
+	<div class="panel col-sm-6 col-md-4 col-lg3">
+		P6
+	</div>
+
+</div>

@@ -1,0 +1,13 @@
+<div ng-if="project"> 
+<div type="button" class="btn btn-default" ng-click="ldd.isCollapsed = !ldd.isCollapsed">Task List: {{listdetails.list.title}}</div>
+	<hr>
+	<div uib-collapse="ldd.isCollapsed">
+		<div ng-repeat="(listid, list) in projectLists">
+        <button class="btn btn-default" ng-click="loadList(list._id,list)"> {{list.title}}</button>
+        
+    </div>
+            <div>
+                <input class="input" ng-model="newList.title"><button class="btn" ng-click="addNewList()">Add</button>
+            </div>
+        </div>
+</div>

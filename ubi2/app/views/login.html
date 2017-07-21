@@ -1,0 +1,38 @@
+
+<h2>Login Page</h2>
+
+
+
+<div class="col-md-6 col-md-push-6">
+<fieldset>
+  <legend>External Login Providers</legend>
+  <p>
+    <button  class="btn btn-primary" ng-click="oauthLogin('linkedIn')">LinkedIn</button>
+    <button  class="btn btn-primary" ng-click="oauthLogin('google')">Google</button>
+    <button  class="btn btn-primary" ng-click="oauthLogin('twitter')">Twitter</button>
+    <button  class="btn btn-primary" ng-click="oauthLogin('github')">GitHub</button>
+    <button  class="btn btn-primary" ng-click="oauthLogin('facebook')">Facebook</button>
+  </p>
+</fieldset>
+</div>
+<div class="col-md-6 col-md-pull-6">
+<form role="form">
+  <p class="form-group">
+    <label for="loginEmail">Username or email</label>
+    <input id="loginEmail" required name="email" type="text" ng-model="email" class="form-control" />
+  </p>
+  <p class="form-group">
+    <label for="loginPass">password</label>
+    <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
+  </p>
+  <p>
+    <button  class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
+    <button  class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
+  </p>
+</form>
+ 
+<p ng-show="err" class="bg-danger">{{err}}</p>
+</div>
+<div>
+    <ubi-register></ubi-register>
+</div>

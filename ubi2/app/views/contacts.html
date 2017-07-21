@@ -1,0 +1,28 @@
+
+<my-contact-list></my-contact-list>
+    <pre>
+        2 things can happen when we add a new contact.
+If the user is already on Ubi, they will get a connection request and this needs to be stored against both parties
+if they're not on ubi, they'll receive an invitaion to join, and a connection request is stored against a newly created, inactive profile
+
+    </pre>
+  new contact:
+  <div class='row'>
+      <div class="input-group col-md-12 col-lg-4">
+  <span class="input-group-addon" id='email'>@</span>
+  <input type="text" class="form-control"  placeholder="Email Address" ng-model="newContact.email"  aria-label="email address">
+</div>
+      <div class="input-group col-md-6 col-lg-4">
+  <span class="input-group-addon" id="firstname">F</span>
+  <input type="text" class="form-control" placeholder="First Name" ng-model="newContact.firstname" aria-label="first name">
+</div>
+      <div class="input-group col-md-6 col-lg-4">
+  <span class="input-group-addon" id="lastname">L</span>
+  <input type="text" class="form-control" placeholder="Last Name" ng-model="newContact.lastname" aria-label="last name">
+</div>
+      
+  </div>
+  
+
+<button ng-click="addContact()">Add</button>
+</div>

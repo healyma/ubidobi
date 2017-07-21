@@ -1,0 +1,63 @@
+<div class="column">
+  <div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" ng-hide="newForm" class="btn btn-default navbar-btn" ng-click="showNew()">New</button>
+          <div class="form-group" ng-if="newForm">
+            <input type="text" ng-model="newcanvas.name" class="form-control" placeholder="New Canvas Name">
+            <button type="button" class="btn btn-default navbar-btn" ng-click="addCanvas()">OK</button>
+          </div>
+
+          
+    <div class="btn-group" uib-dropdown is-open="status.isopen">
+      <button id="single-button" type="button" class="btn btn-primary btn-default" uib-dropdown-toggle ng-disabled="disabled">
+        Button dropdown <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
+        <li role="menuitem"><a href="#">Action</a></li>
+        <li role="menuitem"><a href="#">Another action</a></li>
+        <li role="menuitem"><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+          
+          
+          <div class="dropdown">
+              <button  class="btn btn-default navbar-btn" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Open Canvas
+                  <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li ng-repeat="canvas in userCanvases" ng-click="loadCanvas(canvas.$id);" ng-init="thisCanvas=canvasDetails(canvas.$id)">{{thisCanvas.name}}</li>
+                  <li>some random canvas</li>
+                  <li>and anther one</li>
+              </ul>
+          </div>
+          <button type="button" class="btn btn-default navbar-btn">Invite</button>
+          <button type="button" class="btn btn-default navbar-btn">Save</button>
+          <ul class="nav navbar-nav navbar-right">
+              <li>Canvas Name: {{thisCanvas.name}}
+              <li>Users: 0
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="row">
+      <div class="col-md-2 col-lg-1">
+          <div class="btn-group-vertical" role="group" aria-label="Users">
+              <button type="button" class="btn btn-default">me</button>
+              <button type="button" class="btn btn-default">him</button>
+              <button type="button" class="btn btn-default">her</button>
+              <color-picker ng-model="activeColour" options="colourPickerOptions"></color-picker>
+          </div>
+      </div>
+      <div class="col-md-10 col-lg-11">
+          <canvas id="teamCanvas" style="border:1px solid #00ff00;">
+          </canvas>
+      </div>
+  </div>
+</div>

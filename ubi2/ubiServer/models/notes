@@ -1,0 +1,28 @@
+Project
+-> Gantt Chart(s)
+--> Milestones
+--> Task Groups
+--> Tasks
+-> Calendar(s)
+--> Events (recurring, all day etc.)
+-> Lists
+--> sub-lists
+--> items
+
+-> People
+--> Teams
+--> Person
+
+Start with one gantt and one calender per project
+create project -> create new chart and new calendar
+Milestone - calendar entry, assigned to person/team
+Task Group - calender entry, new list, assigned to person/team
+Task - list item, assigned
+
+Calendar Event - create new milestone
+
+list -> task
+sub-list -> parent becomes task group -> task group added to calendar?
+item - nothing
+
+Gantt charts can have split tasks (dotted lines between elements on the same row)

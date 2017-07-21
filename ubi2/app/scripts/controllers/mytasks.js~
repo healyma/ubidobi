@@ -1,0 +1,154 @@
+    <script type="text/ng-template" id="custom_template.html">
+        <div class="ui-notification custom-template">
+            <h3>{{nTitle}}</h3>
+            <div class="message" ng-bind-html="message"></div>
+            <div class="message">
+                <ul>
+                    <li ng-repeat="el in nElements">{{el}}</li>
+                </ul>
+            </div>
+            <div class="message">
+                <a class="btn btn-small btn-primary close-notification" ng-click="nClick()">Click me</a>
+            </div>
+        </div>
+    </script>
+
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name ubiApp.controller:MytasksCtrl
+ * @description
+ * # MytasksCtrl
+ * Controller of the ubiApp
+ */
+angular.module('ubiApp')
+  .controller('MytasksCtrl', function ($scope,ngAlertsMngr,Notification) {
+    $scope.createAlert = function () {
+        ngAlertsMngr.add({msg:'what does a really long message, like this on, look like?', type:'danger'});
+Notification.success({message: "Success notification<br>Some other <b>content</b><br><button ng-click=\"remove()\">Click</button> <a class=\"btn btn-small btn-primary close-notification\" ng-click=\"clickTest()\">test Alerts</a>", title: 'Html content',closeOnClick:false,scope:$scope});
+
+  
+    };
+	$scope.clickTest=function(){
+		console.log("this was called from the alert notification");	
+	}
+  	 $scope.remove = function (scope) {
+ 	 	if (scope.nodes){
+  	 		alert("are you sure you want to remove this item and all it's child items?");
+        scope.remove();
+     }
+      };
+
+      $scope.toggle = function (scope) {
+        scope.toggle();
+      };
+      $scope.complete = function (scope) {
+        scope.completed=!scope.completed;
+      };
+
+      $scope.moveLastToTheBeginning = function () {
+        var a = $scope.data.pop();
+        $scope.data.splice(0, 0, a);
+      };
+
+      $scope.newSubItem = function (scope) {
+        var nodeData = scope.$modelValue;
+        nodeData.nodes.unshift({
+          id: nodeData.id * 10 + nodeData.nodes.length,
+          title: 'New item - ' + (nodeData.nodes.length + 1),
+          nodes: []
+        });
+      };
+
+      $scope.collapseAll = function () {
+        $scope.$broadcast('angular-ui-tree:collapse-all');
+      };
+
+      $scope.expandAll = function () {
+        $scope.$broadcast('angular-ui-tree:expand-all');
+      };
+      
+      
+   $scope.data=[
+  {
+    "id": 2,
+    "title": "tree2 - item2",
+    "nodes": [
+      {
+        "id": 3,
+        "title": "tree2 - item3",
+        "nodes": []
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "title": "tree2 - item1",
+    "nodes": [
+      {
+        "id": 1,
+        "title": "tree1 - item1",
+        "nodes": [
+          {
+            "id": 10,
+            "title": "tree1 - item1.1",
+            "nodes": []
+          },
+          {
+            "id": 11,
+            "title": "tree1 - item1.2",
+            "nodes": []
+          },
+          {
+            "id": 12,
+            "title": "tree1 - item1.3",
+            "nodes": []
+          },
+          {
+            "id": 13,
+            "title": "tree1 - item1.4",
+            "nodes": []
+          },
+          {
+            "id": 14,
+            "title": "tree1 - item1.5",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "tree1 - item2",
+        "nodes": []
+      },
+      {
+        "id": 10,
+        "title": "tree2 - item1.1",
+        "nodes": []
+      },
+      {
+        "id": 11,
+        "title": "tree2 - item1.2",
+        "nodes": []
+      },
+      {
+        "id": 12,
+        "title": "tree2 - item1.3",
+        "nodes": []
+      },
+      {
+        "id": 13,
+        "title": "tree2 - item1.4",
+        "nodes": []
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "tree2 - item4",
+    "nodes": []
+  }
+];
+   
+  });

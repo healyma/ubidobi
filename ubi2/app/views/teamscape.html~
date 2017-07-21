@@ -1,0 +1,42 @@
+<ubi-plumb></ubi-plumb>
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-target="#canvas" aria-controls="canvas" role="tab" data-toggle="tab">Shared Canvas</a></li>
+    <li role="presentation"><a data-target="#notepad" aria-controls="notepad" role="tab" data-toggle="tab">Shared Notepad</a></li>
+    <li role="presentation"><a data-target="#messages" aria-controls="messages" role="tab" data-toggle="tab"> My Messages</a></li>
+    <li role="presentation"><a data-target="#forum" aria-controls="forum" role="tab" data-toggle="tab">Team/Project Forums</a></li>
+    <li role="presentation"><a data-target="#tasks" aria-controls="tasks" role="tab" data-toggle="tab">Open Tasks</a></li>
+    <li role="presentation"><a data-target="#manage" aria-controls="manage teams" role="tab" data-toggle="tab">My Teams</a></li>
+    <li role="presentation"><a data-target="#gantt" aria-controls="manage teams" role="tab" data-toggle="tab">Project Gantt Chart(s)</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="canvas">
+          <ubi-canvas style="border:1px solid #ff0000; width:500px"></ubi-canvas>
+      </div>
+    <div role="tabpanel" class="tab-pane" id="notepad">
+        <ubi-notepad></ubi-notepad>
+  </div>
+      <div role="tabpanel" class="tab-pane" id="messages">
+          <ubi-messages></ubi-messages>
+    
+    </div>
+    <div role="tabpanel" class="tab-pane" id="forum">
+          <ubi-forum></ubi-forum>
+    
+    </div>
+      <div role="tabpanel" class="tab-pane" id="tasks"><ubi-tasks></ubi-tasks></div>
+      <div role="tabpanel" class="tab-pane" id="manage"><ubi-team></ubi-team></div>
+      <div role="tabpanel" class="tab-pane" id="gantt"><ubi-gantt></ubi-gantt></div>
+  </div>
+
+</div>
+
+
+
+
+

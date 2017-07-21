@@ -1,0 +1,71 @@
+
+'use strict';
+
+/**
+ * @ngdoc overview
+ * @name ubiApp
+ * @description
+ * # ubiApp
+ *
+ * Main module of the application.
+ */
+angular.module('ubiApp', [
+    'ngAnimate',
+    'ngAria',
+    'ngCookies',
+    'ngMessages',
+    'ui.bootstrap',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    'firebase',
+    'color.picker',
+    'gantt',
+    'gantt.sortable',
+    'gantt.movable',
+    'gantt.drawtask',
+    'gantt.tooltips',
+    'gantt.bounds',
+    'gantt.progress',
+    'gantt.table',
+    'gantt.tree',
+    'gantt.groups',
+    'gantt.dependencies',
+    'gantt.overlap',
+    'gantt.resizeSensor',
+    'textAngular',
+    'ui.tree',
+    'cgNotify',
+    'xeditable',
+    'ngAlerts',
+	 'ui-notification'
+  ]);
+angular.module('ubiApp').config(['$qProvider','ui-notification','ngAlertsProvider', function ($qProvider,ui-notification,ngAlertsProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+ // Global empty list text.
+    ngAlertsProvider.options.emptyListText = '';
+
+    // The queue timeout for new alerts.
+    ngAlertsProvider.options.queueTimeout = 3000;
+
+    // The queue location (top||bottom, left||right).
+    ngAlertsProvider.options.queueLocation = 'bottom left';
+            NotificationProvider.setOptions({
+            delay: 10000,
+            startTop: 20,
+            startRight: 10,
+            verticalSpacing: 20,
+            horizontalSpacing: 20,
+            positionX: 'left',
+            positionY: 'bottom'
+        });
+}]);
+angular.module('ubiApp').run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+})
+
+
+
+
+

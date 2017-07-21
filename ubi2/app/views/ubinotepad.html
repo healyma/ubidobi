@@ -1,0 +1,10 @@
+<div ng-controller="NotepadCtrl">
+<button ng-click="openPad()">My scratchpad</button>
+<div>dropdown of shared pads
+<div> <div ng-repeat="note in myPads" ng-init="notepad=noteDetails(note.$id)">
+<button ng-click="openPad(note.$id)">{{notepad.title}}</button></div>
+</div>
+<div text-angular ng-model="(thisPad.text)"></div>
+<button ng-click="savePad()">Save</button>
+
+</div>

@@ -1,0 +1,31 @@
+ <uib-tabset active="active">
+    <uib-tab index="0" heading="My Messages">        
+        <ubi-messages></ubi-messages>
+    </uib-tab>
+    <uib-tab index="1" heading="Shared Canvas" > 
+          <ubi-canvas style="border:1px solid #ff0000; width:500px"></ubi-canvas>
+    </uib-tab>
+    <uib-tab index="2" heading="Shared Notepad" > 
+        <ubi-notepad></ubi-notepad>
+    </uib-tab>
+    <uib-tab index="3" heading="Team/Project Forums" > 
+          <ubi-forum></ubi-forum>
+    </uib-tab>
+    <uib-tab index="4" heading="Open Tasks"> 
+        <ubi-tasks></ubi-tasks>
+    </uib-tab>
+    <uib-tab index="5" heading="My Teams" > 
+        <ubi-team></ubi-team>
+    </uib-tab>
+    <uib-tab index="6" heading="Project Gantt Chart(s)" >
+    <input ng-model="project.Id">
+          <ubi-gantt  project="project"></ubi-gantt>
+    
+    </uib-tab>
+    
+ </uib-tabset>
+
+  
+
+
+

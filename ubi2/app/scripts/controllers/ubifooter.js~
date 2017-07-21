@@ -1,0 +1,38 @@
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name ubiApp.controller:UbifooterctrlCtrl
+ * @description
+ * # UbifooterctrlCtrl
+ * Controller of the ubiApp
+ */
+angular.module('ubiApp')
+  .controller('ubiFooterCtrl',["$scope","User","Auth","$uibModal",function ($scope,User,Auth,$uibModal) {
+  	$scope.modal=function(){
+	$scope.dialogTitle="this is the title for the modal box";
+		$uibModal.open({
+  templateUrl: 'myModalContent.html',
+  size: 'lg',
+  controller:'Dialog1Ctrl',
+  scope:$scope,
+  backdrop:'static',
+  resolve: {
+    items: function () {
+      return $scope.items;
+    }
+  }
+});  	
+  	}
+        $scope.userId=Auth.$getAuth();
+        console.log($scope.userId);
+    Auth.$onAuthStateChanged(function(firebaseUser) {
+      if(firebaseUser){
+        $scope.userId=User.getUser(firebaseUser.uid);
+        console.log($scope.userId);
+    }else{
+        $scope.userId='cannot resolve the user details';
+    }
+  })
+    
+  }]);
